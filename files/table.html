@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bootstrap Login Form </title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+<style type="text/css">
+	 body {
+		color: #fff;
+		/* background-color:#1B4F72; */
+		font-family: 'Roboto', sans-serif;
+	    color: black; 
+	}
+.container { padding: 70px 0 30px; }
+ #btn1 {
+    float:right;
+	padding-right:47%;
+   }
+.table {
+  width: 600px;
+  position: relative;  
+}
+.table-dark:hover {background-color: #000428;} 
+</style>
+</head>
+<body>
+<center> 
+<div class="container">
+  <form method="POST" action="/assigned">
+  <input type="hidden" name="complaintId" id="complaintId" />
+  <table class="table table-bordered">
+
+      <tr>
+        <th>Complaint No</th>
+        <th>Description</th>
+        <th>Status</th>
+      </tr>
+      {% for row in rows %}
+      <tr>
+        <td>{{ row.complaintId }}</td>
+        <td>{{ row.description }}</td>
+        <td><button type="button" onclick="closeComplaint({{ row.complaintId }})">Close</button></td>
+      </tr>
+      {% endfor %}
+  </table>
+  </form>
+</div> </center>
+<div id="btn1">
+    <button type="button" class="btn1 btn-default btn-sm">
+          <span class="glyphicon glyphicon-log-out"></span> Log out
+        </button>
+</div>	
+<script>
+      function closeComplaint(complaintId){
+        $("#complaintId").val(complaintId);
+        $("form").submit();
+      }
+</script>
+</body>
+
+</html>                            
