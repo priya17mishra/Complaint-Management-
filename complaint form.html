@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bootstrap Login Form </title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+<style type="text/css">
+	 body {
+		color: #fff;
+		font-family: 'Roboto', sans-serif;
+		color:black;
+	}
+	.form-control {
+        min-height: 41px;
+		background: #fff;
+		box-shadow: none !important;
+		border-color: #e3e3e3;
+	}
+	.form-control:focus {
+		border-color: #70c5c0;
+	}
+    .form-control, .btn {        
+        border-radius: 2px;
+    }
+	.login-form {
+		width: 350px;
+		margin: 0 auto;
+		padding: 0px 0 30px;	
+        color:black;		
+	}
+	.login-form form {
+		color: black;
+		border-radius: 2px;
+    	margin-bottom: 15px;
+        font-size: 15px;
+        background: #ececec;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+        padding: 30px;	
+        position: relative;	
+    }
+    .login-form .btn {        
+        font-size: 16px;
+		color:white;
+        font-weight: bold;
+		background:  #000428 ;
+		border: none;
+		margin-bottom: 20px;
+		
+    }
+	.login-form .btn:hover, .login-form .btn:focus {
+		background-color:#49c1a2;
+        outline: none !important;
+	}    
+	.login-form a {
+		color: #fff;
+		text-decoration: underline;
+	}
+	.login-form a:hover {
+		text-decoration: none;
+	}
+	.login-form form a {
+		color: #7a7a7a;
+		text-decoration: none;
+	}
+	.login-form form a:hover {
+		text-decoration: underline;
+	} 
+</style>
+</head>
+<body>
+<font face = "Lucida Bright" > <center> <h2> Complaint Form </h2> </center> </font>
+<div class="login-form">
+
+			<form action="/complaint" method="POST">
+    
+                <label for="usr">Name:</label>
+                <input type="text" class="form-control" id="usr" placeholder="Enter name" name="user" disabled value="{{ username }}" />   
+
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+    
+                <label for="contact">Contact Number:</label>
+                <input type="text" class="form-control" id="contact" placeholder="Enter mobile number" name="contact">
+    
+                <label for"desc">Description:</label>
+                <textarea class="form-control" id="desc" rows="3" name="desc">
+                </textarea>
+                
+                &nbsp;&nbsp;&nbsp;
+               <br> <button type="submit" class="btn btn-default">Submit</button>
+                &nbsp;&nbsp;
+                <button type="button" class="btn btn-default">Back</button>
+			</form>
+</div>
+<div>
+<center>{{ messages.successful }}</center>
+</div>
+</body>
+</html>                            
